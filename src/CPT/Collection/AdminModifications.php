@@ -1,6 +1,6 @@
 <?php
 
-namespace FTM\FreethinkPlugin\CPT\Project;
+namespace FTM\FreethinkPlugin\CPT\Collection;
 
 /**
  * Class Admin Modifications

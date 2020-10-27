@@ -3,7 +3,9 @@
 
 namespace FTM\FreethinkPlugin\CPT\Section;
 
+use FTM\FreethinkPlugin\CPT\Challenge\Challenge;
 use FTM\FreethinkPlugin\CPT\Field\Field;
+use FTM\FreethinkPlugin\CPT\Profile\Profile;
 
 
 /**
@@ -30,15 +32,42 @@ class Post_Meta {
 
 		acf_add_local_field_group(array(
 			'key' => 'group_section_1',
-			'title' => 'Section Details',
+			'title' => 'Section Relationships',
 			'fields' => array (
 				array (
-					'key' => 'fields',
+					'key' => 'section_fields',
 					'label' => 'Fields',
-					'name' => 'fields',
-					'type' => 'relationship',
+					'name' => 'section_fields',
+					'type' => 'post_object',
+					'ui' => 1,
+					'multiple'			=> 1,
+					'allow_null' 		=> 1,
 					'post_type' => [
 						Field::NAME
+					]
+				),
+				array (
+					'key' => 'section_challenges',
+					'label' => 'Challenges',
+					'name' => 'section_challenges',
+					'type' => 'post_object',
+					'ui' => 1,
+					'multiple'			=> 1,
+					'allow_null' 		=> 1,
+					'post_type' => [
+						Challenge::NAME
+					]
+				),
+				array (
+					'key' => 'section_profiles',
+					'label' => 'Profiles',
+					'name' => 'section_profiles',
+					'type' => 'post_object',
+					'ui' => 1,
+					'multiple'			=> 1,
+					'allow_null' 		=> 1,
+					'post_type' => [
+						Profile::NAME
 					]
 				),
 			),

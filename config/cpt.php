@@ -11,6 +11,7 @@
 
 return [
 
+	/*
 	[
 		'id' => 'ftm_project',
 		'labels'      => [
@@ -44,6 +45,7 @@ return [
 		'show_in_rest' => true,
 		'map_meta_cap'       => true,
 	],
+	*/
 
 	[
 		'id' => 'ftm_challenge',
@@ -277,6 +279,7 @@ return [
 		'menu_position'      => null,
 		'supports'           => [ 'title', 'editor', 'author', 'thumbnail', 'excerpt' ],
 		'map_meta_cap'       => true,
+		'show_in_rest'       => true,
 	]
 
 ];

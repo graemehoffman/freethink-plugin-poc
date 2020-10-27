@@ -118,11 +118,14 @@ final class Plugin
 
 	    $this->container->get('cpt_controller')->addCustomPostTypes();
 
+	    $this->container->get('admin.dashboard')->hooks();
+
 	    $this->container->get('post_types.profiles.post_meta')->hooks();
 	    $this->container->get('post_types.narratives.post_meta')->hooks();
 	    $this->container->get('post_types.sections.post_meta')->hooks();
 	    $this->container->get('post_types.fields.post_meta')->hooks();
-
+	    $this->container->get('post_types.challenges.post_meta')->hooks();
+	    $this->container->get('post_types.collections.post_meta')->hooks();
 
 	    $this->loaded = true;
 
@@ -158,6 +161,7 @@ final class Plugin
             }
         }
 
+	    $config = [];
         foreach ($config_dir as $config_file) {
             $config_id = str_replace('.php', '', $config_file);
             $config[$config_id] = $config_file;

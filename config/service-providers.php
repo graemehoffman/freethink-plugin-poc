@@ -39,16 +39,20 @@ return [
         ],
     ],
 
+    'admin.dashboard' => [
+	    'class' => FTM\FreethinkPlugin\Admin\Dashboard::class,
+    ],
+
     'post_types.profiles.post_meta' => [
-	    'class' => FTM\FreethinkPlugin\CPT\Profile\Post_Meta::class,
+		'class' => FTM\FreethinkPlugin\CPT\Profile\Post_Meta::class,
+	],
+
+    'post_types.challenges.post_meta' => [
+	    'class' => FTM\FreethinkPlugin\CPT\Challenge\Post_Meta::class,
     ],
 
     'post_types.narratives.post_meta' => [
 	    'class' => FTM\FreethinkPlugin\CPT\Narrative\Post_Meta::class,
-    ],
-
-    'post_types.projects.post_meta' => [
-	    'class' => FTM\FreethinkPlugin\CPT\Project\Post_Meta::class,
     ],
 
     'post_types.fields.post_meta' => [
@@ -57,6 +61,10 @@ return [
 
     'post_types.sections.post_meta' => [
 	    'class' => FTM\FreethinkPlugin\CPT\Section\Post_Meta::class,
+    ],
+
+    'post_types.collections.post_meta' => [
+	    'class' => FTM\FreethinkPlugin\CPT\Collection\Post_Meta::class,
     ],
 
 ];
