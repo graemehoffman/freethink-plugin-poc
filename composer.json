@@ -1,0 +1,40 @@
+{
+    "name": "ftm/freethink",
+    "description": "Plugin for Freethink.com.",
+    "type": "wordpress-plugin",
+    "keywords": ["wordpress", "plugin"],
+    "homepage": "https://www.freethink.com/",
+    "license": "GPL-2.0+",
+    "authors": [
+      {
+          "name": "Graeme Hoffman",
+          "email": "graeme@graemehoffman.com",
+          "homepage": "http://graemehoffman.com/"
+      }
+    ],
+    "support": {
+    },
+    "autoload": {
+        "psr-4": {
+            "FTM\\FreethinkPlugin\\": "src/"
+        },
+        "classmap": [
+        ],
+        "files": [
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Vendor\\Tests\\Plugin\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=7.0",
+        "composer/installers": "~1.0",
+        "pimple/pimple": "~3.0",
+        "netrivet/wp-event-emitter": "^6.0"
+    },
+    "require-dev": {
+    },
+    "suggest": {}
+}
