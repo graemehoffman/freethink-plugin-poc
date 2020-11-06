@@ -1,13 +1,13 @@
 <?php
 
 
-namespace FTM\FreethinkPlugin\CPT\Narrative;
+namespace FTM\FreethinkPlugin\CPT\Article;
 
 
 use FTM\FreethinkPlugin\CPT\Challenge\Challenge;
-use FTM\FreethinkPlugin\CPT\Contributor\Contributor;
 use FTM\FreethinkPlugin\CPT\Field\Field;
-use FTM\FreethinkPlugin\CPT\Profile\Profile;
+use FTM\FreethinkPlugin\CPT\Person\Person;
+use FTM\FreethinkPlugin\CPT\Organization\Organization;
 
 /**
  * Class Post Meta
@@ -30,7 +30,7 @@ class Post_Meta {
 
 		acf_add_local_field_group(array(
 			'key' => 'group_article_titles',
-			'title' => 'Narrative Titles',
+			'title' => 'Titles',
 			'fields' => array (
 				array (
 					'key' => 'big_title',
@@ -58,7 +58,7 @@ class Post_Meta {
 					array (
 						'param' => 'post_type',
 						'operator' => '==',
-						'value' => Narrative::NAME    ,
+						'value' => Article::NAME    ,
 					),
 				),
 			),
@@ -67,7 +67,7 @@ class Post_Meta {
 
 		acf_add_local_field_group(array(
 			'key' => 'group_article_relationships',
-			'title' => 'Narrative Relationships',
+			'title' => 'Relationships',
 			'fields' => array (
 
 				array (
@@ -103,13 +103,14 @@ class Post_Meta {
 					'multiple'			=> 1,
 					'allow_null' 		=> 1,
 					'post_type' => [
-						Profile::NAME
+						Person::NAME,
+						Organization::NAME
 					]
 				),
 				array (
-					'key' => 'narrative_projects',
+					'key' => 'projects',
 					'label' => 'Project Tags',
-					'name' => 'narrative_projects',
+					'name' => 'projects',
 					'type' => 'taxonomy',
 					'taxonomy' => 'ftm_taxonomy_projects',
 					'allow_null' => 1,
@@ -122,7 +123,7 @@ class Post_Meta {
 					array (
 						'param' => 'post_type',
 						'operator' => '==',
-						'value' => Narrative::NAME    ,
+						'value' => Article::NAME    ,
 					),
 				),
 			),
@@ -131,7 +132,7 @@ class Post_Meta {
 
 		acf_add_local_field_group(array(
 			'key' => 'group_narrative_meta',
-			'title' => 'Narrative Meta Info',
+			'title' => 'Meta Info',
 			'fields' => array (
 				array (
 					'key' => 'contributors',
@@ -150,7 +151,7 @@ class Post_Meta {
 					array (
 						'param' => 'post_type',
 						'operator' => '==',
-						'value' => Narrative::NAME    ,
+						'value' => Article::NAME    ,
 					),
 				),
 			),

@@ -10,8 +10,6 @@ use FTM\FreethinkPlugin\CPT\Field\Field;
  */
 class Post_Meta {
 
-	const FIELD_TYPE = 'div_ai_field_type';
-
 	protected $container;
 
 	public function hooks() {

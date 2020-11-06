@@ -43,16 +43,16 @@ return [
 	    'class' => FTM\FreethinkPlugin\Admin\Dashboard::class,
     ],
 
-    'post_types.profiles.post_meta' => [
-		'class' => FTM\FreethinkPlugin\CPT\Profile\Post_Meta::class,
+    'post_types.persons.post_meta' => [
+		'class' => FTM\FreethinkPlugin\CPT\Person\Post_Meta::class,
 	],
 
     'post_types.challenges.post_meta' => [
 	    'class' => FTM\FreethinkPlugin\CPT\Challenge\Post_Meta::class,
     ],
 
-    'post_types.narratives.post_meta' => [
-	    'class' => FTM\FreethinkPlugin\CPT\Narrative\Post_Meta::class,
+    'post_types.articles.post_meta' => [
+	    'class' => FTM\FreethinkPlugin\CPT\Article\Post_Meta::class,
     ],
 
     'post_types.fields.post_meta' => [

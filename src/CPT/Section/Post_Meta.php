@@ -5,15 +5,13 @@ namespace FTM\FreethinkPlugin\CPT\Section;
 
 use FTM\FreethinkPlugin\CPT\Challenge\Challenge;
 use FTM\FreethinkPlugin\CPT\Field\Field;
-use FTM\FreethinkPlugin\CPT\Profile\Profile;
+use FTM\FreethinkPlugin\CPT\Person\Person;
 
 
 /**
  * Class Post Meta
  */
 class Post_Meta {
-
-	const FIELD_TYPE = 'div_ai_field_type';
 
 	protected $container;
 
@@ -59,15 +57,15 @@ class Post_Meta {
 					]
 				),
 				array (
-					'key' => 'section_profiles',
-					'label' => 'Profiles',
-					'name' => 'section_profiles',
+					'key' => 'section_persons',
+					'label' => 'People',
+					'name' => 'section_persons',
 					'type' => 'post_object',
 					'ui' => 1,
 					'multiple'			=> 1,
 					'allow_null' 		=> 1,
 					'post_type' => [
-						Profile::NAME
+						Person::NAME
 					]
 				),
 			),

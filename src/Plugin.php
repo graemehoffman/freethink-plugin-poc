@@ -23,6 +23,8 @@ final class Plugin
      */
     public $container;
 
+	private static $instance = null;
+
     /**
      * The plugin root file
      *
@@ -56,6 +58,19 @@ final class Plugin
         $this->plugin_root_file = $plugin_root_file;
         $this->namespace = __NAMESPACE__;
     }
+
+	// The object is created from within the class itself
+	// only if the class has no instance.
+	public static function getInstance(Container $container = null, $plugin_root_file = null)
+	{
+		if (self::$instance == null)
+		{
+			self::$instance = new Plugin($container, $plugin_root_file);
+		}
+
+		return self::$instance;
+	}
+
 
     /**
      * Add default services to our Container
@@ -120,8 +135,8 @@ final class Plugin
 
 	    $this->container->get('admin.dashboard')->hooks();
 
-	    $this->container->get('post_types.profiles.post_meta')->hooks();
-	    $this->container->get('post_types.narratives.post_meta')->hooks();
+	    $this->container->get('post_types.persons.post_meta')->hooks();
+	    $this->container->get('post_types.articles.post_meta')->hooks();
 	    $this->container->get('post_types.sections.post_meta')->hooks();
 	    $this->container->get('post_types.fields.post_meta')->hooks();
 	    $this->container->get('post_types.challenges.post_meta')->hooks();
@@ -169,4 +184,7 @@ final class Plugin
 
         return $config;
     }
+
+
+
 }

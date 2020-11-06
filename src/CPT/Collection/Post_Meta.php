@@ -5,7 +5,7 @@ namespace FTM\FreethinkPlugin\CPT\Collection;
 
 use FTM\FreethinkPlugin\CPT\Challenge\Challenge;
 use FTM\FreethinkPlugin\CPT\Field\Field;
-use FTM\FreethinkPlugin\CPT\Profile\Profile;
+use FTM\FreethinkPlugin\CPT\Person\Person;
 use FTM\FreethinkPlugin\CPT\Collection\Collection;
 
 /**
@@ -63,7 +63,7 @@ class Post_Meta {
 						'search'
 					],
 					'post_type' => [
-						Profile::NAME
+						Person::NAME
 					]
 				),
 				array (

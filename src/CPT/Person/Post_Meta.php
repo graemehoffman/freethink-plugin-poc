@@ -1,7 +1,7 @@
 <?php
 
 
-namespace FTM\FreethinkPlugin\CPT\Profile;
+namespace FTM\FreethinkPlugin\CPT\Person;
 
 use FTM\FreethinkPlugin\CPT\Challenge\Challenge;
 use FTM\FreethinkPlugin\CPT\Field\Field;
@@ -11,8 +11,6 @@ use FTM\FreethinkPlugin\CPT\Field\Field;
  *
  */
 class Post_Meta {
-
-	const FIELD_TYPE = 'div_ai_field_type';
 
 	protected $container;
 
@@ -46,86 +44,14 @@ class Post_Meta {
 				),
 				*/
 				array (
-					'key' => 'profile_type_tax',
-					'label' => 'Profile Type',
-					'name' => 'profile_type_tax',
-					'type' => 'taxonomy',
-					'taxonomy' => 'ftm_taxonomy_profile_types',
-					'allow_null' => 1,
-					'field_type' 		=> 'select',
-				),
-				array (
 					'key' => 'person_type_tax',
 					'label' => 'Person Type',
 					'name' => 'person_type_tax',
 					'type' => 'taxonomy',
 					'taxonomy' => 'ftm_taxonomy_profile_per_types',
 					'allow_null' => 1,
-					'field_type' 		=> 'select',
-					'multiple' => 1,
-					'conditional_logic' => array (
-						array (
-							array (
-								'field' => 'profile_type_tax',
-								'operator' => '<',
-								'value' => 13,
-							),
-							array (
-								'field' => 'profile_type_tax',
-								'operator' => '>',
-								'value' => 11,
-							),
-						),
-					),
+					'field_type' => 'select',
 				),
-
-				array (
-					'key' => 'org_type_tax',
-					'label' => 'Organization Type',
-					'name' => 'org_type_tax',
-					'type' => 'taxonomy',
-					'taxonomy' => 'ftm_taxonomy_profile_org_types',
-					'allow_null' => 1,
-					'field_type' 		=> 'select',
-					'multiple' => 1,
-					'conditional_logic' => array (
-						array (
-							array (
-								'field' => 'profile_type_tax',
-								'operator' => '<',
-								'value' => 14,
-							),
-							array (
-								'field' => 'profile_type_tax',
-								'operator' => '>',
-								'value' => 12,
-							),
-						),
-					),
-				),
-				/*
-				 * ftm_taxonomy_profile_person_types
-				array (
-					'key' => 'profile_person_address',
-					'label' => 'Person Address',
-					'name' => 'profile_person_address',
-					'type' => 'text',
-					'conditional_logic' => array (
-						array (
-							array (
-								'field' => 'profile_type_tax',
-								'operator' => '<',
-								'value' => 13,
-							),
-							array (
-								'field' => 'profile_type_tax',
-								'operator' => '>',
-								'value' => 11,
-							),
-						),
-					),
-				),
-				*/
 
 			),
 			'location' => array (
@@ -133,7 +59,7 @@ class Post_Meta {
 					array (
 						'param' => 'post_type',
 						'operator' => '==',
-						'value' => Profile::NAME    ,
+						'value' => Person::NAME    ,
 					),
 				),
 			),
@@ -181,7 +107,7 @@ class Post_Meta {
 					array (
 						'param' => 'post_type',
 						'operator' => '==',
-						'value' => Profile::NAME    ,
+						'value' => Person::NAME    ,
 					),
 				),
 			),

@@ -10,6 +10,15 @@
 
 namespace FTM\FreethinkPlugin\CPT;
 
+use FTM\FreethinkPlugin\CPT\Challenge\Challenge;
+use FTM\FreethinkPlugin\CPT\Article\Article;
+use FTM\FreethinkPlugin\CPT\Field\Field;
+use FTM\FreethinkPlugin\CPT\Organization\Organization;
+use FTM\FreethinkPlugin\CPT\Person\Person;
+use FTM\FreethinkPlugin\CPT\Collection\Collection;
+use FTM\FreethinkPlugin\CPT\Section\Section;
+use FTM\FreethinkPlugin\Plugin;
+
 class CPT
 {
     /**
@@ -20,11 +29,15 @@ class CPT
      */
     public static function register()
     {
-        $post_types = include(plugin_dir_path(dirname(dirname(__FILE__))) . 'config/cpt.php');
 
-        foreach ($post_types as $post_type) {
-            register_post_type($post_type['id'], $post_type);
-        }
+		register_post_type(Article::NAME, Article::get_register_cpt_args() );
+		register_post_type(Challenge::NAME, Challenge::get_register_cpt_args() );
+	    register_post_type(Field::NAME, Field::get_register_cpt_args() );
+	    register_post_type(Person::NAME, Person::get_register_cpt_args() );
+	    register_post_type(Organization::NAME, Organization::get_register_cpt_args() );
+	    register_post_type(Collection::NAME, Collection::get_register_cpt_args() );
+	    register_post_type(Section::NAME, Section::get_register_cpt_args() );
+
     }
 
 

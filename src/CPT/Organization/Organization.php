@@ -1,24 +1,23 @@
 <?php
 
 
-namespace FTM\FreethinkPlugin\CPT\Collection;
+namespace FTM\FreethinkPlugin\CPT\Organization;
 
 /**
- * Class Project
- *
+ * Class Organization
  */
-class Collection {
+class Organization {
 
-	const NAME = 'ftm_collection';
+	const NAME = 'ftm_organization';
 
 	static function get_register_cpt_args() {
 		return [
-			'id' => 'ftm_collection',
+			'id' => 'ftm_organization',
 			'labels'      => [
-				'singular'     => _x( 'Collection', 'freethink', 'freethink' ),
-				'plural'       => _x( 'Collections', 'freethink', 'freethink' ),
-				'slug'         => _x( 'collection', 'freethink', 'freethink' ),
-				'name'         => _x( 'Collections', 'freethink', 'freethink' ),
+				'singular'     => _x( 'Organization', 'freethink', 'freethink' ),
+				'plural'       => _x( 'Organizations', 'freethink', 'freethink' ),
+				'slug'         => _x( 'organization', 'freethink', 'freethink' ),
+				'name'         => _x( 'Organizations', 'freethink', 'freethink' ),
 				// 'add_new_item' => _x( 'Add New Project', 'archive item', 'freethink' ),
 				// 'edit_item'    => _x( 'Edit Archive Item', 'archive item', 'freethink' ),
 				// Overrides the “Featured Image” label
@@ -43,6 +42,7 @@ class Collection {
 			'menu_position'      => null,
 			'supports'           => [ 'title', 'editor', 'author', 'thumbnail', 'excerpt' ],
 			'map_meta_cap'       => true,
+			'show_in_rest'       => true,
 		];
 	}
 
