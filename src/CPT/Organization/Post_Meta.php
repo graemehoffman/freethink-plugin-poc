@@ -29,7 +29,7 @@ class Post_Meta {
 
 		acf_add_local_field_group(array(
 			'key' => 'group_org_0',
-			'title' => 'Organization Details',
+			'title' => 'Organization Info',
 			'fields' => array (
 
 				array (
@@ -37,9 +37,9 @@ class Post_Meta {
 					'label' => 'Organization Type',
 					'name' => 'org_type_tax',
 					'type' => 'taxonomy',
-					'taxonomy' => 'ftm_taxonomy_org_types',
+					'taxonomy' => 'ftm_taxonomy_organization_types',
 					'allow_null' => 1,
-					'field_type' 		=> 'select',
+					'field_type' => 'select',
 				),
 			),
 			'location' => array (
@@ -47,7 +47,7 @@ class Post_Meta {
 					array (
 						'param' => 'post_type',
 						'operator' => '==',
-						'value' => Organization::NAME    ,
+						'value' => Organization::NAME,
 					),
 				),
 			),
@@ -55,7 +55,7 @@ class Post_Meta {
 
 		acf_add_local_field_group(array(
 			'key' => 'group_profile_1',
-			'title' => 'Profile Relationships',
+			'title' => 'Organization Relationships',
 			'fields' => array (
 				array (
 					'key' => 'related_person_fields',

@@ -28,27 +28,14 @@ class Post_Meta {
 
 		acf_add_local_field_group(array(
 			'key' => 'group_profile_0',
-			'title' => 'Profile Details',
+			'title' => 'Person Info',
 			'fields' => array (
-				/*
-				array (
-					'key' => 'profile_type',
-					'label' => 'Profile Type',
-					'name' => 'profile_type',
-					'type' => 'select',
-					'allow_null' => 1,
-					'choices' => array(
-						'person'	=> 'Person',
-						'organization' => 'Organization'
-					),
-				),
-				*/
 				array (
 					'key' => 'person_type_tax',
 					'label' => 'Person Type',
 					'name' => 'person_type_tax',
 					'type' => 'taxonomy',
-					'taxonomy' => 'ftm_taxonomy_profile_per_types',
+					'taxonomy' => 'ftm_taxonomy_person_types',
 					'allow_null' => 1,
 					'field_type' => 'select',
 				),

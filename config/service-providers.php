@@ -47,6 +47,10 @@ return [
 		'class' => FTM\FreethinkPlugin\CPT\Person\Post_Meta::class,
 	],
 
+    'post_types.organizations.post_meta' => [
+	    'class' => FTM\FreethinkPlugin\CPT\Organization\Post_Meta::class,
+    ],
+
     'post_types.challenges.post_meta' => [
 	    'class' => FTM\FreethinkPlugin\CPT\Challenge\Post_Meta::class,
     ],
