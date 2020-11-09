@@ -34,7 +34,7 @@ class Challenge {
 			'show_ui'            => true,
 			'show_in_menu'       => true,
 			'query_var'          => true,
-			'rewrite'            => [ 'slug' => 'freethink' ],
+			'rewrite'            => [ 'slug' => 'challenges' ],
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
