@@ -4,6 +4,9 @@
 namespace FTM\FreethinkPlugin\CPT\Challenge;
 
 use FTM\FreethinkPlugin\CPT\Field\Field;
+use FTM\FreethinkPlugin\CPT\Organization\Organization;
+use FTM\FreethinkPlugin\CPT\Person\Person;
+use FTM\FreethinkPlugin\CPT\Section\Section;
 
 /**
  * Class Post Meta
@@ -28,10 +31,11 @@ class Post_Meta {
 			'key' => 'group_challenge_1',
 			'title' => 'Challenge Details',
 			'fields' => array (
+				// Bidirectional
 				array (
-					'key' => 'challenge_related_fields',
+					'key' => 'field_challenge_related_challenges_fields',
 					'label' => 'Related Fields',
-					'name' => 'related_fields',
+					'name' => 'related_challenges_fields',
 					'type' => 'post_object',
 					'ui' => 1,
 					'multiple'			=> 1,
@@ -40,6 +44,50 @@ class Post_Meta {
 						Field::NAME
 					]
 				),
+
+				// Bidirectional
+				array (
+					'key' => 'field_challenge_related_challenges_profiles',
+					'label' => 'Related Profiles',
+					'name' => 'related_challenges_profiles',
+					'type' => 'post_object',
+					'ui' => 1,
+					'multiple'			=> 1,
+					'allow_null' 		=> 1,
+					'post_type' => [
+						Organization::NAME,
+						Person::NAME
+					]
+				),
+
+				// Bidirectional
+				array (
+					'key' => 'field_challenge_related_challenges_sections',
+					'label' => 'Related Sections',
+					'name' => 'related_challenges_sections',
+					'type' => 'post_object',
+					'ui' => 1,
+					'multiple'			=> 1,
+					'allow_null' 		=> 1,
+					'post_type' => [
+						Section::NAME,
+					]
+				),
+
+				// Bidirectional
+				array (
+					'key' => 'field_related_challenges',
+					'label' => 'Related Challenges',
+					'name' => 'related_challenges',
+					'type' => 'post_object',
+					'ui' => 1,
+					'multiple'			=> 1,
+					'allow_null' 		=> 1,
+					'post_type' => [
+						Challenge::NAME,
+					]
+				),
+
 			),
 			'location' => array (
 				array (

@@ -70,10 +70,11 @@ class Post_Meta {
 			'title' => 'Relationships',
 			'fields' => array (
 
+				// Single directional
 				array (
-					'key' => 'fields',
+					'key' => 'field_related_fields',
 					'label' => 'Related Fields',
-					'name' => 'fields',
+					'name' => 'related_fields',
 					'type' => 'post_object',
 					'ui' => 1,
 					'multiple'			=> 1,
@@ -82,8 +83,10 @@ class Post_Meta {
 						Field::NAME
 					]
 				),
+
+				// Single directional
 				array (
-					'key' => 'related_challenges',
+					'key' => 'field_related_challenges',
 					'label' => 'Related Challenges',
 					'name' => 'related_challenges',
 					'type' => 'post_object',
@@ -94,8 +97,10 @@ class Post_Meta {
 						Challenge::NAME
 					]
 				),
+
+				// Single directional
 				array (
-					'key' => 'related_profiles',
+					'key' => 'field_related_profiles',
 					'label' => 'Related Profiles',
 					'name' => 'related_profiles',
 					'type' => 'post_object',
@@ -107,8 +112,10 @@ class Post_Meta {
 						Organization::NAME
 					]
 				),
+
+				// Taxonomy
 				array (
-					'key' => 'projects',
+					'key' => 'field_projects',
 					'label' => 'Project Tags',
 					'name' => 'projects',
 					'type' => 'taxonomy',
@@ -116,6 +123,27 @@ class Post_Meta {
 					'allow_null' => 1,
 					'field_type' 		=> 'select',
 					'multiple' => 1,
+				),
+
+				// Bidirectional
+				array (
+					'key' => 'field_related_narratives',
+					'label' => 'Related Narratives',
+					'name' => 'related_narratives',
+					'type' => 'post_object',
+					'ui' => 1,
+					'multiple'			=> 1,
+					'allow_null' 		=> 1,
+					'post_type' => [
+						Article::NAME,
+					]
+				),
+
+				array (
+					'key' => 'field_project_impact',
+					'label' => 'Impact',
+					'name' => 'project_impact',
+					'type' => 'textarea'
 				),
 			),
 			'location' => array (
@@ -135,7 +163,7 @@ class Post_Meta {
 			'title' => 'Meta Info',
 			'fields' => array (
 				array (
-					'key' => 'contributors',
+					'key' => 'field_contributors',
 					'label' => 'Contributors',
 					'name' => 'contributors',
 					'type' => 'user',
@@ -144,6 +172,20 @@ class Post_Meta {
 						'author',
 						'editor'
 					]
+				),
+				array (
+					'key' => 'field_show_modified_date',
+					'label' => 'Show Modified Date',
+					'name' => 'show_modified_date',
+					'type' => 'true_false',
+					'ui' => 1
+				),
+				array (
+					'key' => 'field_modified_date',
+					'label' => 'Modified Date',
+					'name' => 'modified_date',
+					'type' => 'date_time_picker',
+					'ui' => 1
 				),
 			),
 			'location' => array (

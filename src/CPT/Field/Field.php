@@ -12,12 +12,12 @@ class Field {
 
 	static function get_register_cpt_args() {
 		return [
-			'id' => 'ftm_section',
+			'id' => 'ftm_field',
 			'labels'      => [
-				'singular'     => _x( 'Section', 'freethink', 'freethink' ),
-				'plural'       => _x( 'Sections', 'freethink', 'freethink' ),
-				'slug'         => _x( 'section', 'freethink', 'freethink' ),
-				'name'         => _x( 'Sections', 'freethink', 'freethink' ),
+				'singular'     => _x( 'Field', 'freethink', 'freethink' ),
+				'plural'       => _x( 'Fields', 'freethink', 'freethink' ),
+				'slug'         => _x( 'field', 'freethink', 'freethink' ),
+				'name'         => _x( 'Fields', 'freethink', 'freethink' ),
 				// 'add_new_item' => _x( 'Add New Project', 'archive item', 'freethink' ),
 				// 'edit_item'    => _x( 'Edit Archive Item', 'archive item', 'freethink' ),
 				// Overrides the “Featured Image” label
@@ -34,7 +34,7 @@ class Field {
 			'show_ui'            => true,
 			'show_in_menu'       => true,
 			'query_var'          => true,
-			'rewrite'            => [ 'slug' => 'freethink' ],
+			'rewrite'            => [ 'slug' => 'topics' ],
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,

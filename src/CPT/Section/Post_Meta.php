@@ -5,6 +5,7 @@ namespace FTM\FreethinkPlugin\CPT\Section;
 
 use FTM\FreethinkPlugin\CPT\Challenge\Challenge;
 use FTM\FreethinkPlugin\CPT\Field\Field;
+use FTM\FreethinkPlugin\CPT\Organization\Organization;
 use FTM\FreethinkPlugin\CPT\Person\Person;
 
 
@@ -32,49 +33,63 @@ class Post_Meta {
 			'key' => 'group_section_1',
 			'title' => 'Section Relationships',
 			'fields' => array (
+
+				// Bidirectional
 				array (
-					'key' => 'section_fields',
-					'label' => 'Fields',
-					'name' => 'section_fields',
+					'key' => 'field_section_related_challenges_sections',
+					'label' => 'Related Challenges',
+					'name' => 'related_challenges_sections',
 					'type' => 'post_object',
 					'ui' => 1,
 					'multiple'			=> 1,
 					'allow_null' 		=> 1,
 					'post_type' => [
-						Field::NAME
+						Challenge::NAME,
 					]
 				),
+
+				// Bidirectional
 				array (
-					'key' => 'section_challenges',
-					'label' => 'Challenges',
-					'name' => 'section_challenges',
+					'key' => 'field_section_related_sections_fields',
+					'label' => 'Related Fields',
+					'name' => 'related_sections_fields',
 					'type' => 'post_object',
 					'ui' => 1,
 					'multiple'			=> 1,
 					'allow_null' 		=> 1,
 					'post_type' => [
-						Challenge::NAME
-					]
+						Field::NAME,
+					],
+					'filters' => [
+						'search'
+					],
 				),
+
+				// Bidirectional
 				array (
-					'key' => 'section_persons',
-					'label' => 'People',
-					'name' => 'section_persons',
+					'key' => 'field_section_related_profiles_sections',
+					'label' => 'Related Profiles',
+					'name' => 'related_profiles_sections',
 					'type' => 'post_object',
 					'ui' => 1,
 					'multiple'			=> 1,
 					'allow_null' 		=> 1,
 					'post_type' => [
-						Person::NAME
-					]
+						Person::NAME,
+						Organization::NAME
+					],
+					'filters' => [
+						'search'
+					],
 				),
+
 			),
 			'location' => array (
 				array (
 					array (
 						'param' => 'post_type',
 						'operator' => '==',
-						'value' => Section::NAME    ,
+						'value' => Section::NAME,
 					),
 				),
 			),

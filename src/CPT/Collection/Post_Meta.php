@@ -5,6 +5,7 @@ namespace FTM\FreethinkPlugin\CPT\Collection;
 
 use FTM\FreethinkPlugin\CPT\Challenge\Challenge;
 use FTM\FreethinkPlugin\CPT\Field\Field;
+use FTM\FreethinkPlugin\CPT\Organization\Organization;
 use FTM\FreethinkPlugin\CPT\Person\Person;
 use FTM\FreethinkPlugin\CPT\Collection\Collection;
 
@@ -31,9 +32,9 @@ class Post_Meta {
 			'title' => 'Profile Relationships',
 			'fields' => array (
 				array (
-					'key' => 'related_project_fields',
+					'key' => 'field_related_fields',
 					'label' => 'Related Fields',
-					'name' => 'related_project_fields',
+					'name' => 'related_fields',
 					'type' => 'relationship',
 					'filters' => [
 						'search'
@@ -43,9 +44,9 @@ class Post_Meta {
 					]
 				),
 				array (
-					'key' => 'related_project_challenges',
+					'key' => 'field_related_challenges',
 					'label' => 'Related Challenges',
-					'name' => 'related_project_challenges',
+					'name' => 'related_challenges',
 					'type' => 'relationship',
 					'filters' => [
 						'search'
@@ -55,22 +56,17 @@ class Post_Meta {
 					]
 				),
 				array (
-					'key' => 'related_project_profiles',
+					'key' => 'field_related_profiles',
 					'label' => 'Related Profiles',
-					'name' => 'related_project_profiles',
+					'name' => 'related_profiles',
 					'type' => 'relationship',
 					'filters' => [
 						'search'
 					],
 					'post_type' => [
-						Person::NAME
+						Person::NAME,
+						Organization::NAME
 					]
-				),
-				array (
-					'key' => 'project_impact',
-					'label' => 'Impact',
-					'name' => 'project_impact',
-					'type' => 'textarea'
 				),
 			),
 			'location' => array (

@@ -5,6 +5,8 @@ namespace FTM\FreethinkPlugin\CPT\Person;
 
 use FTM\FreethinkPlugin\CPT\Challenge\Challenge;
 use FTM\FreethinkPlugin\CPT\Field\Field;
+use FTM\FreethinkPlugin\CPT\Organization\Organization;
+use FTM\FreethinkPlugin\CPT\Section\Section;
 
 /**
  * Class Post Meta
@@ -56,38 +58,72 @@ class Post_Meta {
 			'key' => 'group_profile_1',
 			'title' => 'Profile Relationships',
 			'fields' => array (
+				// Bidirectional
 				array (
-					'key' => 'related_profile_fields',
-					'label' => 'Related Fields',
-					'name' => 'related_section_fields',
+					'key' => 'field_person_related_challenges_profiles',
+					'label' => 'Related Challenges',
+					'name' => 'related_challenges_profiles',
 					'type' => 'post_object',
-					'placeholder' => 'Add related fields here',
 					'ui' => 1,
 					'multiple'			=> 1,
 					'allow_null' 		=> 1,
-					'filters' => [
-						'search'
-					],
+					'post_type' => [
+						Challenge::NAME,
+					]
+				),
+
+				// Bidirectional
+				array (
+					'key' => 'field_person_related_profiles_fields',
+					'label' => 'Related Fields',
+					'name' => 'related_profiles_fields',
+					'type' => 'post_object',
+					'ui' => 1,
+					'multiple'			=> 1,
+					'allow_null' 		=> 1,
 					'post_type' => [
 						Field::NAME
-					]
-				),
-				array (
-					'key' => 'related_profile_challenges',
-					'label' => 'Related Challenges',
-					'name' => 'related_profile_challenges',
-					'type' => 'post_object',
-					'placeholder' => 'Add related fields here',
-					'ui' => 1,
-					'multiple'			=> 1,
-					'allow_null' 		=> 1,
+					],
 					'filters' => [
 						'search'
 					],
-					'post_type' => [
-						Challenge::NAME
-					]
 				),
+
+				// Bidirectional
+				array (
+					'key' => 'field_person_related_profiles_sections',
+					'label' => 'Related Sections',
+					'name' => 'related_profiles_sections',
+					'type' => 'post_object',
+					'ui' => 1,
+					'multiple'			=> 1,
+					'allow_null' 		=> 1,
+					'post_type' => [
+						Section::NAME
+					],
+					'filters' => [
+						'search'
+					],
+				),
+
+				// Bidirectional
+				array (
+					'key' => 'field_person_related_profiles',
+					'label' => 'Related Profiles',
+					'name' => 'related_profiles',
+					'type' => 'post_object',
+					'ui' => 1,
+					'multiple'			=> 1,
+					'allow_null' 		=> 1,
+					'post_type' => [
+						Organization::NAME,
+						Person::NAME
+					],
+					'filters' => [
+						'search'
+					],
+				),
+
 			),
 			'location' => array (
 				array (

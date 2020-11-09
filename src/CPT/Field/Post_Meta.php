@@ -4,8 +4,10 @@
 namespace FTM\FreethinkPlugin\CPT\Field;
 
 
-use FTM\FreethinkPlugin\CPT\Field\Field;
 use FTM\FreethinkPlugin\CPT\Challenge\Challenge;
+use FTM\FreethinkPlugin\CPT\Organization\Organization;
+use FTM\FreethinkPlugin\CPT\Person\Person;
+use FTM\FreethinkPlugin\CPT\Section\Section;
 
 /**
  * Class Post Meta
@@ -34,12 +36,13 @@ class Post_Meta {
 
 		acf_add_local_field_group(array(
 			'key' => 'group_field_info',
-			'title' => 'Related Info',
+			'title' => 'Connections to Other Content',
 			'fields' => array (
+				// Bidirectional
 				array (
-					'key' => 'related_fields_tax',
+					'key' => 'field_related_fields',
 					'label' => 'Related Fields',
-					'name' => 'related_fields_tax',
+					'name' => 'related_fields',
 					'type' => 'post_object',
 					'placeholder' => 'Add related fields here',
 					'ui' => 1,
@@ -52,10 +55,12 @@ class Post_Meta {
 						'search'
 					],
 				),
+
+				// Bidirectional
 				array (
-					'key' => 'related_challenges_tax',
+					'key' => 'field_field_related_challenges_fields',
 					'label' => 'Related Challenges',
-					'name' => 'related_challenges_tax',
+					'name' => 'related_challenges_fields',
 					'type' => 'post_object',
 					'ui' => 1,
 					'multiple'			=> 1,
@@ -67,6 +72,42 @@ class Post_Meta {
 						'search'
 					],
 				),
+
+				// Bidirectional
+				array (
+					'key' => 'field_field_related_profiles_fields',
+					'label' => 'Related Profiles',
+					'name' => 'related_profiles_fields',
+					'type' => 'post_object',
+					'ui' => 1,
+					'multiple'			=> 1,
+					'allow_null' 		=> 1,
+					'post_type' => [
+						Organization::NAME,
+						Person::NAME
+					],
+					'filters' => [
+						'search'
+					],
+				),
+
+				// Bidirectional
+				array (
+					'key' => 'field_field_related_sections_fields',
+					'label' => 'Related Section',
+					'name' => 'related_sections_fields',
+					'type' => 'post_object',
+					'ui' => 1,
+					'multiple'			=> 1,
+					'allow_null' 		=> 1,
+					'post_type' => [
+						Section::NAME,
+					],
+					'filters' => [
+						'search'
+					],
+				),
+
 			),
 			'location' => array (
 				array (
