@@ -38,7 +38,7 @@ class Article {
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
-			'menu_icon'          => 'dashicons-star-filled',
+			'menu_icon'          => 'dashicons-media-document',
 			'menu_position'      => null,
 			'supports'           => [ 'title', 'editor', 'author', 'thumbnail', 'excerpt' ],
 			'show_in_rest' => true,

@@ -1,25 +1,23 @@
 <?php
 
 
-namespace FTM\FreethinkPlugin\CPT\Field;
+namespace FTM\FreethinkPlugin\CPT\Series;
 
 /**
- * Class Field
+ * Class Series
  */
-class Field {
+class Series {
 
-	const NAME = 'ftm_field';
+	const NAME = 'ftm_series';
 
 	static function get_register_cpt_args() {
 		return [
-			'id' => 'ftm_field',
+			'id' => 'ftm_article',
 			'labels'      => [
-				'singular'     => _x( 'Field', 'freethink', 'freethink' ),
-				'plural'       => _x( 'Fields', 'freethink', 'freethink' ),
-				'slug'         => _x( 'field', 'freethink', 'freethink' ),
-				'name'         => _x( 'Fields', 'freethink', 'freethink' ),
-				// 'add_new_item' => _x( 'Add New Project', 'archive item', 'freethink' ),
-				// 'edit_item'    => _x( 'Edit Archive Item', 'archive item', 'freethink' ),
+				'singular'     => _x( 'Series', 'freethink', 'freethink' ),
+				'plural'       => _x( 'Series', 'freethink', 'freethink' ),
+				'slug'         => _x( 'series', 'freethink', 'freethink' ),
+				'name'         => _x( 'Series', 'freethink', 'freethink' ),
 				// Overrides the “Featured Image” label
 				'featured_image'        => _x( 'Thumbnail image', 'freethink', 'freethink' ),
 				// Overrides the “Set featured image” label
@@ -34,15 +32,15 @@ class Field {
 			'show_ui'            => true,
 			'show_in_menu'       => true,
 			'query_var'          => true,
-			'rewrite'            => [ 'slug' => 'topics' ],
+			'rewrite'            => [ 'slug' => 'series' ],
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
-			'menu_icon'          => 'dashicons-portfolio',
+			'menu_icon'          => 'dashicons-video-alt',
 			'menu_position'      => null,
 			'supports'           => [ 'title', 'editor', 'author', 'thumbnail', 'excerpt' ],
+			'show_in_rest' => true,
 			'map_meta_cap'       => true,
-			'show_in_rest'       => true,
 		];
 	}
 

@@ -69,8 +69,8 @@ class Post_Meta {
 					'name' => 'related_challenges_profiles',
 					'type' => 'post_object',
 					'ui' => 1,
-					'multiple'			=> 1,
-					'allow_null' 		=> 1,
+					'multiple' => 1,
+					'allow_null' => 1,
 					'post_type' => [
 						Challenge::NAME,
 					]
@@ -83,8 +83,8 @@ class Post_Meta {
 					'name' => 'related_profiles_fields',
 					'type' => 'post_object',
 					'ui' => 1,
-					'multiple'			=> 1,
-					'allow_null' 		=> 1,
+					'multiple' => 1,
+					'allow_null' => 1,
 					'post_type' => [
 						Field::NAME
 					],
@@ -100,8 +100,8 @@ class Post_Meta {
 					'name' => 'related_profiles_sections',
 					'type' => 'post_object',
 					'ui' => 1,
-					'multiple'			=> 1,
-					'allow_null' 		=> 1,
+					'multiple' => 1,
+					'allow_null' => 1,
 					'post_type' => [
 						Section::NAME
 					],
@@ -117,8 +117,8 @@ class Post_Meta {
 					'name' => 'related_profiles',
 					'type' => 'post_object',
 					'ui' => 1,
-					'multiple'			=> 1,
-					'allow_null' 		=> 1,
+					'multiple' => 1,
+					'allow_null' => 1,
 					'post_type' => [
 						Organization::NAME,
 						Person::NAME

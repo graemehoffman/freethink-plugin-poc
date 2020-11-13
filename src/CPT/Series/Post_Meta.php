@@ -1,15 +1,14 @@
 <?php
 
 
-namespace FTM\FreethinkPlugin\CPT\Article;
+namespace FTM\FreethinkPlugin\CPT\Series;
 
 
+use FTM\FreethinkPlugin\CPT\Article\Article;
 use FTM\FreethinkPlugin\CPT\Challenge\Challenge;
 use FTM\FreethinkPlugin\CPT\Field\Field;
 use FTM\FreethinkPlugin\CPT\Person\Person;
 use FTM\FreethinkPlugin\CPT\Organization\Organization;
-use FTM\FreethinkPlugin\CPT\Video\Video;
-use FTM\FreethinkPlugin\CPT\Series\Series;
 
 /**
  * Class Post Meta
@@ -137,9 +136,9 @@ class Post_Meta {
 					'multiple'			=> 1,
 					'allow_null' 		=> 1,
 					'post_type' => [
-						Article::NAME,
 						Video::NAME,
-						Series::NAME
+						Article::NAME,
+						Series::NAME,
 					]
 				),
 
@@ -155,7 +154,7 @@ class Post_Meta {
 					array (
 						'param' => 'post_type',
 						'operator' => '==',
-						'value' => Article::NAME    ,
+						'value' => Video::NAME    ,
 					),
 				),
 			),
@@ -197,7 +196,7 @@ class Post_Meta {
 					array (
 						'param' => 'post_type',
 						'operator' => '==',
-						'value' => Article::NAME    ,
+						'value' => Series::NAME    ,
 					),
 				),
 			),

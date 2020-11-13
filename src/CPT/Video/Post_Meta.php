@@ -1,15 +1,15 @@
 <?php
 
 
-namespace FTM\FreethinkPlugin\CPT\Article;
+namespace FTM\FreethinkPlugin\CPT\Video;
 
 
+use FTM\FreethinkPlugin\CPT\Article\Article;
+use FTM\FreethinkPlugin\CPT\Series\Series;
 use FTM\FreethinkPlugin\CPT\Challenge\Challenge;
 use FTM\FreethinkPlugin\CPT\Field\Field;
 use FTM\FreethinkPlugin\CPT\Person\Person;
 use FTM\FreethinkPlugin\CPT\Organization\Organization;
-use FTM\FreethinkPlugin\CPT\Video\Video;
-use FTM\FreethinkPlugin\CPT\Series\Series;
 
 /**
  * Class Post Meta
@@ -79,8 +79,8 @@ class Post_Meta {
 					'name' => 'related_fields',
 					'type' => 'post_object',
 					'ui' => 1,
-					'multiple'			=> 1,
-					'allow_null' 		=> 1,
+					'multiple' => 1,
+					'allow_null' => 1,
 					'post_type' => [
 						Field::NAME
 					]
@@ -93,8 +93,8 @@ class Post_Meta {
 					'name' => 'related_challenges',
 					'type' => 'post_object',
 					'ui' => 1,
-					'multiple'			=> 1,
-					'allow_null' 		=> 1,
+					'multiple' => 1,
+					'allow_null' => 1,
 					'post_type' => [
 						Challenge::NAME
 					]
@@ -107,8 +107,8 @@ class Post_Meta {
 					'name' => 'related_profiles',
 					'type' => 'post_object',
 					'ui' => 1,
-					'multiple'			=> 1,
-					'allow_null' 		=> 1,
+					'multiple' => 1,
+					'allow_null' => 1,
 					'post_type' => [
 						Person::NAME,
 						Organization::NAME
@@ -123,7 +123,7 @@ class Post_Meta {
 					'type' => 'taxonomy',
 					'taxonomy' => 'ftm_taxonomy_projects',
 					'allow_null' => 1,
-					'field_type' 		=> 'select',
+					'field_type' => 'select',
 					'multiple' => 1,
 				),
 
@@ -134,8 +134,8 @@ class Post_Meta {
 					'name' => 'related_narratives',
 					'type' => 'post_object',
 					'ui' => 1,
-					'multiple'			=> 1,
-					'allow_null' 		=> 1,
+					'multiple' => 1,
+					'allow_null' => 1,
 					'post_type' => [
 						Article::NAME,
 						Video::NAME,
@@ -155,7 +155,7 @@ class Post_Meta {
 					array (
 						'param' => 'post_type',
 						'operator' => '==',
-						'value' => Article::NAME    ,
+						'value' => Video::NAME    ,
 					),
 				),
 			),
@@ -197,7 +197,7 @@ class Post_Meta {
 					array (
 						'param' => 'post_type',
 						'operator' => '==',
-						'value' => Article::NAME    ,
+						'value' => Video::NAME    ,
 					),
 				),
 			),

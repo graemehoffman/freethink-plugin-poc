@@ -39,7 +39,7 @@ class Collection {
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
-			'menu_icon'          => 'dashicons-star-filled',
+			'menu_icon'          => 'dashicons-paperclip',
 			'menu_position'      => null,
 			'supports'           => [ 'title', 'editor', 'author', 'thumbnail', 'excerpt' ],
 			'map_meta_cap'       => true,
