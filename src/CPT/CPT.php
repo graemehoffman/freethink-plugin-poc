@@ -42,17 +42,6 @@ class CPT
 	}
 
 	/**
-	 * Rewrite
-	 *
-	 * @return void
-	 */
-	public static function set_rewrite_rules() {
-
-
-	}
-
-
-	/**
 	 * Register taxonomies
 	 *
 	 * @since 0.4.0

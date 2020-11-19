@@ -59,7 +59,6 @@ class Rewrite {
 				'top'
 			);
 
-			// ToDo: add subsection too
 		}
 		wp_reset_postdata();
 	}
