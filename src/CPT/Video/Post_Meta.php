@@ -20,7 +20,6 @@ class Post_Meta {
 	protected $container;
 
 	public function hooks() {
-		var_dump('Video hooks');
 		add_action('acf/init', [ $this, 'my_acf_init' ] );
 	}
 

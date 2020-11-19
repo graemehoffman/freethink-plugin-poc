@@ -37,11 +37,11 @@ class Article {
 			'rewrite'            => true,
 			'capability_type'    => 'post',
 			'has_archive'        => false,
-			'hierarchical'       => true,
+			'hierarchical'       => false,
 			'menu_icon'          => 'dashicons-media-document',
 			'menu_position'      => null,
 			'supports'           => [ 'title', 'editor', 'author', 'thumbnail', 'excerpt' ],
-			'show_in_rest' => true,
+			'show_in_rest'       => true,
 			'map_meta_cap'       => true,
 		];
 	}
