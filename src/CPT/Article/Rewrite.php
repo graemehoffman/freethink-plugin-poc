@@ -5,6 +5,7 @@ namespace FTM\FreethinkPlugin\CPT\Article;
 
 use FTM\FreethinkPlugin\Container\Container;
 use FTM\FreethinkPlugin\CPT\Section\Section;
+use FTM\FreethinkPlugin\CPT\Video\Video;
 
 /**
  * Class Rewrite
@@ -17,7 +18,7 @@ class Rewrite {
 	 * @return string
 	 */
 	public function modify_post_type_link( $url, $post, $leavename ) {
-		if ( Article::NAME === $post->post_type ) {
+		if ( Article::NAME === $post->post_type || Video::NAME === $post->post_type ) {
 			$section = get_field( 'navigational_section', $post->ID );
 			if ( !empty( $section ) ) {
 				$parts = [];
@@ -49,6 +50,12 @@ class Rewrite {
 			add_rewrite_rule(
 				sprintf( '%s/([^/]*)/?', $post->post_name),
 				'index.php?name=$matches[1]&post_type=ftm_article',
+				'top'
+			);
+
+			add_rewrite_rule(
+				sprintf( '%s/([^/]*)/?', $post->post_name),
+				'index.php?name=$matches[1]&post_type=ftm_video',
 				'top'
 			);
 

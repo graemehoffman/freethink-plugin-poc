@@ -138,6 +138,7 @@ final class Plugin
 		// post Meta
 		$this->container->get('post_types.persons.post_meta')->hooks();
 		$this->container->get('post_types.articles.post_meta')->hooks();
+		$this->container->get('post_types.videos.post_meta')->hooks();
 		$this->container->get('post_types.sections.post_meta')->hooks();
 		$this->container->get('post_types.fields.post_meta')->hooks();
 		$this->container->get('post_types.challenges.post_meta')->hooks();

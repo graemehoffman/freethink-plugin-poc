@@ -9,6 +9,7 @@ use FTM\FreethinkPlugin\CPT\Section\Section;
 use FTM\FreethinkPlugin\CPT\Challenge\Challenge;
 use FTM\FreethinkPlugin\CPT\Field\Field;
 use FTM\FreethinkPlugin\CPT\Person\Person;
+use FTM\FreethinkPlugin\CPT\Sponsor\Sponsor;
 use FTM\FreethinkPlugin\CPT\Organization\Organization;
 
 /**
@@ -19,6 +20,7 @@ class Post_Meta {
 	protected $container;
 
 	public function hooks() {
+		var_dump('Video hooks');
 		add_action('acf/init', [ $this, 'my_acf_init' ] );
 	}
 
@@ -31,7 +33,7 @@ class Post_Meta {
 	{
 
 		acf_add_local_field_group(array(
-			'key' => 'group_article_titles',
+			'key' => 'group_video_titles',
 			'title' => 'Titles',
 			'fields' => array (
 				array (
@@ -60,7 +62,7 @@ class Post_Meta {
 					array (
 						'param' => 'post_type',
 						'operator' => '==',
-						'value' => Article::NAME    ,
+						'value' => Video::NAME    ,
 					),
 				),
 			),
@@ -68,7 +70,7 @@ class Post_Meta {
 
 
 		acf_add_local_field_group(array(
-			'key' => 'group_article_relationships',
+			'key' => 'group_video_relationships',
 			'title' => 'Relationships',
 			'fields' => array (
 
@@ -175,8 +177,9 @@ class Post_Meta {
 		));
 
 
+		// ToDo: can this be combined with article??
 		acf_add_local_field_group(array(
-			'key' => 'group_narrative_meta',
+			'key' => 'group_video_meta',
 			'title' => 'Meta Info',
 			'fields' => array (
 				array (
@@ -203,6 +206,32 @@ class Post_Meta {
 					'name' => 'modified_date',
 					'type' => 'date_time_picker',
 					'ui' => 1
+				),
+				// Single directional
+				array (
+					'key' => 'navigational_section',
+					'label' => 'Navigational Section',
+					'name' => 'navigational_section',
+					'type' => 'post_object',
+					'ui' => 1,
+					'multiple' => 0,
+					'allow_null' => 0,
+					'post_type' => [
+						Section::NAME
+					]
+				),
+				// Single directional
+				array (
+					'key' => 'related_sponsor',
+					'label' => 'Sponsor',
+					'name' => 'related_sponsor',
+					'type' => 'post_object',
+					'ui' => 1,
+					'multiple' => 0,
+					'allow_null' => 0,
+					'post_type' => [
+						Sponsor::NAME
+					]
 				),
 			),
 			'location' => array (

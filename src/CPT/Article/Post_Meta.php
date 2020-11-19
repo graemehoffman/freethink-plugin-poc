@@ -9,6 +9,7 @@ use FTM\FreethinkPlugin\CPT\Field\Field;
 use FTM\FreethinkPlugin\CPT\Person\Person;
 use FTM\FreethinkPlugin\CPT\Organization\Organization;
 use FTM\FreethinkPlugin\CPT\Section\Section;
+use FTM\FreethinkPlugin\CPT\Sponsor\Sponsor;
 use FTM\FreethinkPlugin\CPT\Video\Video;
 use FTM\FreethinkPlugin\CPT\Series\Series;
 
@@ -202,6 +203,19 @@ class Post_Meta {
 					'allow_null' => 0,
 					'post_type' => [
 						Section::NAME
+					]
+				),
+				// Single directional
+				array (
+					'key' => 'related_sponsor',
+					'label' => 'Sponsor',
+					'name' => 'related_sponsor',
+					'type' => 'post_object',
+					'ui' => 1,
+					'multiple' => 0,
+					'allow_null' => 0,
+					'post_type' => [
+						Sponsor::NAME
 					]
 				),
 			),

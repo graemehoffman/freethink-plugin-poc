@@ -12,7 +12,7 @@ class Video {
 
 	static function get_register_cpt_args() {
 		return [
-			'id' => 'ftm_article',
+			'id' => 'ftm_video',
 			'labels'      => [
 				'singular'     => _x( 'Video', 'freethink', 'freethink' ),
 				'plural'       => _x( 'Videos', 'freethink', 'freethink' ),

@@ -71,6 +71,10 @@ return [
 		'class' => FTM\FreethinkPlugin\CPT\Collection\Post_Meta::class,
 	],
 
+	'post_types.videos.post_meta' => [
+		'class' => FTM\FreethinkPlugin\CPT\Video\Post_Meta::class,
+	],
+
 	'post_types.articles.rewrite' => [
 		'class' => FTM\FreethinkPlugin\CPT\Article\Rewrite::class,
 	],
