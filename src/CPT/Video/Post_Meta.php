@@ -5,7 +5,7 @@ namespace FTM\FreethinkPlugin\CPT\Video;
 
 
 use FTM\FreethinkPlugin\CPT\Article\Article;
-use FTM\FreethinkPlugin\CPT\Series\Series;
+use FTM\FreethinkPlugin\CPT\Section\Section;
 use FTM\FreethinkPlugin\CPT\Challenge\Challenge;
 use FTM\FreethinkPlugin\CPT\Field\Field;
 use FTM\FreethinkPlugin\CPT\Person\Person;
@@ -74,6 +74,20 @@ class Post_Meta {
 
 				// Single directional
 				array (
+					'key' => 'navigational_section',
+					'label' => 'Navigational Section',
+					'name' => 'navigational_section',
+					'type' => 'post_object',
+					'ui' => 1,
+					'multiple'			=> 1,
+					'allow_null' 		=> 1,
+					'post_type' => [
+						Section::NAME
+					]
+				),
+
+				// Single directional
+				array (
 					'key' => 'field_related_fields',
 					'label' => 'Related Fields',
 					'name' => 'related_fields',
@@ -138,8 +152,7 @@ class Post_Meta {
 					'allow_null' => 1,
 					'post_type' => [
 						Article::NAME,
-						Video::NAME,
-						Series::NAME
+						Video::NAME
 					]
 				),
 

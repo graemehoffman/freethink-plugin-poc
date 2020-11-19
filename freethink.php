@@ -33,7 +33,7 @@ Activation::register(__FILE__);
 
 add_action('plugins_loaded', function () {
     $container = container();
-    $container->set( 'plugin', new Plugin( $container, __FILE__ ) );
+    $container->set( 'plugin', Plugin::getInstance( $container, __FILE__ ) );
     $container->get( 'plugin' )->init();
 });
 

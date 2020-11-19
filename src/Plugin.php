@@ -17,47 +17,47 @@ use FTM\FreethinkPlugin\Container\Container;
 final class Plugin
 {
 
-    /**
-     * Container instance
-     * @var Container
-     */
-    public $container;
+	/**
+	 * Container instance
+	 * @var Container
+	 */
+	public $container;
 
 	private static $instance = null;
 
-    /**
-     * The plugin root file
-     *
-     * @var string
-     */
-    public $plugin_root_file;
+	/**
+	 * The plugin root file
+	 *
+	 * @var string
+	 */
+	public $plugin_root_file;
 
-    /**
-     * The plugin top level namespace
-     *
-     * @var string
-     */
-    public $namespace;
+	/**
+	 * The plugin top level namespace
+	 *
+	 * @var string
+	 */
+	public $namespace;
 
-    /**
-     * Flag to track if the plugin is loaded.
-     *
-     * @var bool
-     */
-    private $loaded = false;
+	/**
+	 * Flag to track if the plugin is loaded.
+	 *
+	 * @var bool
+	 */
+	private $loaded = false;
 
-    /**
-     * Constructor.
-     *
-     * @since 0.1.0
-     * @param string    plugin_root_folder    Root folder of the plugin
-     */
-    public function __construct(Container $container, $plugin_root_file)
-    {
-        $this->container = $container;
-        $this->plugin_root_file = $plugin_root_file;
-        $this->namespace = __NAMESPACE__;
-    }
+	/**
+	 * Constructor.
+	 *
+	 * @since 0.1.0
+	 * @param string    plugin_root_folder    Root folder of the plugin
+	 */
+	public function __construct(Container $container, $plugin_root_file)
+	{
+		$this->container = $container;
+		$this->plugin_root_file = $plugin_root_file;
+		$this->namespace = __NAMESPACE__;
+	}
 
 	// The object is created from within the class itself
 	// only if the class has no instance.
@@ -72,118 +72,119 @@ final class Plugin
 	}
 
 
-    /**
-     * Add default services to our Container
-     *
-     * @since 0.2.0
-     */
-    public function registerServices()
-    {
-        $service_providers = $this->container->get('service-providers-config')->config;
+	/**
+	 * Add default services to our Container
+	 *
+	 * @since 0.2.0
+	 */
+	public function registerServices()
+	{
+		$service_providers = $this->container->get('service-providers-config')->config;
 
-        foreach ($service_providers as $key => $value) {
-            $args = [];
+		foreach ($service_providers as $key => $value) {
+			$args = [];
 
-            if (array_key_exists('dependencies', $value)) {
-                $args = $this->filterDependencies($value['dependencies']);
-            }
+			if (array_key_exists('dependencies', $value)) {
+				$args = $this->filterDependencies($value['dependencies']);
+			}
 
-            if (array_key_exists('params', $value)) {
-                $args = array_merge($args, $value['params']);
-            }
+			if (array_key_exists('params', $value)) {
+				$args = array_merge($args, $value['params']);
+			}
 
-            if (!empty($args)) {
-                $this->container->set($key, new $value['class'](...$args));
-            } else {
-                $this->container->set($key, new $value['class']());
-            }
-        }
+			if (!empty($args)) {
+				$this->container->set($key, new $value['class'](...$args));
+			} else {
+				$this->container->set($key, new $value['class']());
+			}
+		}
 
-        return $this;
-    }
+		return $this;
+	}
 
-    protected function filterDependencies(array $dependencies)
-    {
-        foreach ($dependencies as $key => $value) {
-            if ($value == 'container') {
-                $dependencies[$key] = $this->container;
-                continue;
-            }
-            $dependencies[$key] = $this->container->get($value);
-        }
+	protected function filterDependencies(array $dependencies)
+	{
+		foreach ($dependencies as $key => $value) {
+			if ($value == 'container') {
+				$dependencies[$key] = $this->container;
+				continue;
+			}
+			$dependencies[$key] = $this->container->get($value);
+		}
 
-        return $dependencies;
-    }
+		return $dependencies;
+	}
 
-    /**
-     * Initialize the plugin. Executes all initial tasks necessary to prepare the plugin to perform its objective(s).
-     *
-     * @since  0.1.0
-     * @return object   $this   Instance of this object.
-     */
-    public function init()
-    {
-        if ($this->loaded) {
-            return;
-        }
+	/**
+	 * Initialize the plugin. Executes all initial tasks necessary to prepare the plugin to perform its objective(s).
+	 *
+	 * @since  0.1.0
+	 * @return object   $this   Instance of this object.
+	 */
+	public function init()
+	{
+		if ($this->loaded) {
+			return;
+		}
 
-        $this->registerConfigs();
-        $this->registerServices();
-        $this->container->get('constants')->define();
+		$this->registerConfigs();
+		$this->registerServices();
+		$this->container->get('constants')->define();
 
-	    $this->container->get('cpt_controller')->addCustomPostTypes();
+		$this->container->get('cpt_controller')->add_custom_post_types();
 
-	    $this->container->get('admin.dashboard')->hooks();
+		$this->container->get('admin.dashboard')->hooks();
 
-	    $this->container->get('post_types.persons.post_meta')->hooks();
-	    $this->container->get('post_types.articles.post_meta')->hooks();
-	    $this->container->get('post_types.sections.post_meta')->hooks();
-	    $this->container->get('post_types.fields.post_meta')->hooks();
-	    $this->container->get('post_types.challenges.post_meta')->hooks();
-	    $this->container->get('post_types.collections.post_meta')->hooks();
+		// post Meta
+		$this->container->get('post_types.persons.post_meta')->hooks();
+		$this->container->get('post_types.articles.post_meta')->hooks();
+		$this->container->get('post_types.sections.post_meta')->hooks();
+		$this->container->get('post_types.fields.post_meta')->hooks();
+		$this->container->get('post_types.challenges.post_meta')->hooks();
+		$this->container->get('post_types.collections.post_meta')->hooks();
 
-	    $this->loaded = true;
+		$this->container->get('cpt_controller')->setup_rewrites();
 
-        return $this;
-    }
+		$this->loaded = true;
 
-    /**
-     * Register and instantiate the plugin configuration objects
-     *
-     * @since 0.3.0
-     * @return void
-     */
-    protected function registerConfigs()
-    {
-        $config_dir_path = plugin_dir_path($this->plugin_root_file) . 'config/';
-        $config_dir = scandir($config_dir_path);
+		return $this;
+	}
 
-        $config_files = $this->filterConfigDir($config_dir);
+	/**
+	 * Register and instantiate the plugin configuration objects
+	 *
+	 * @since 0.3.0
+	 * @return void
+	 */
+	protected function registerConfigs()
+	{
+		$config_dir_path = plugin_dir_path($this->plugin_root_file) . 'config/';
+		$config_dir = scandir($config_dir_path);
 
-        foreach ($config_files as $config_id => $config_file) {
-            $config_file = $config_dir_path . $config_file;
-            $this->container->set($config_id . '-config', new Config($config_file));
-        }
+		$config_files = $this->filterConfigDir($config_dir);
 
-        return $this;
-    }
+		foreach ($config_files as $config_id => $config_file) {
+			$config_file = $config_dir_path . $config_file;
+			$this->container->set($config_id . '-config', new Config($config_file));
+		}
+	}
 
-    protected function filterConfigDir($config_dir)
-    {
-        foreach ($config_dir as $key => $value) {
-            if (in_array($value, array('.','..','index.php')) || strpos($value, '.php') == false) {
-                unset($config_dir[$key]);
-            }
-        }
+	protected function filterConfigDir($config_dir)
+	{
+		foreach ($config_dir as $key => $value) {
+			if (in_array($value, array('.','..','index.php')) || strpos($value, '.php') == false) {
+				unset($config_dir[$key]);
+			}
+		}
 
-	    $config = [];
-        foreach ($config_dir as $config_file) {
-            $config_id = str_replace('.php', '', $config_file);
-            $config[$config_id] = $config_file;
-        }
+		$config = [];
+		foreach ($config_dir as $config_file) {
+			$config_id = str_replace('.php', '', $config_file);
+			$config[$config_id] = $config_file;
+		}
 
-        return $config;
-    }
+		return $config;
+	}
 
 
 

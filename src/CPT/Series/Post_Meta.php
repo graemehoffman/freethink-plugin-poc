@@ -5,6 +5,7 @@ namespace FTM\FreethinkPlugin\CPT\Series;
 
 
 use FTM\FreethinkPlugin\CPT\Article\Article;
+use FTM\FreethinkPlugin\CPT\Video\Video;
 use FTM\FreethinkPlugin\CPT\Challenge\Challenge;
 use FTM\FreethinkPlugin\CPT\Field\Field;
 use FTM\FreethinkPlugin\CPT\Person\Person;
@@ -137,8 +138,7 @@ class Post_Meta {
 					'allow_null' 		=> 1,
 					'post_type' => [
 						Video::NAME,
-						Article::NAME,
-						Series::NAME,
+						Article::NAME
 					]
 				),
 

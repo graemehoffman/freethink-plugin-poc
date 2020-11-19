@@ -8,6 +8,7 @@ use FTM\FreethinkPlugin\CPT\Challenge\Challenge;
 use FTM\FreethinkPlugin\CPT\Field\Field;
 use FTM\FreethinkPlugin\CPT\Person\Person;
 use FTM\FreethinkPlugin\CPT\Organization\Organization;
+use FTM\FreethinkPlugin\CPT\Section\Section;
 use FTM\FreethinkPlugin\CPT\Video\Video;
 use FTM\FreethinkPlugin\CPT\Series\Series;
 
@@ -71,6 +72,20 @@ class Post_Meta {
 			'key' => 'group_article_relationships',
 			'title' => 'Relationships',
 			'fields' => array (
+
+				// Single directional
+				array (
+					'key' => 'navigational_section',
+					'label' => 'Navigational Section',
+					'name' => 'navigational_section',
+					'type' => 'post_object',
+					'ui' => 1,
+					'multiple' => 0,
+					'allow_null' => 0,
+					'post_type' => [
+						Section::NAME
+					]
+				),
 
 				// Single directional
 				array (
@@ -138,8 +153,7 @@ class Post_Meta {
 					'allow_null' 		=> 1,
 					'post_type' => [
 						Article::NAME,
-						Video::NAME,
-						Series::NAME
+						Video::NAME
 					]
 				),
 
