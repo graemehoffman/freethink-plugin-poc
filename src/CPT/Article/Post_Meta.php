@@ -75,20 +75,6 @@ class Post_Meta {
 
 				// Single directional
 				array (
-					'key' => 'navigational_section',
-					'label' => 'Navigational Section',
-					'name' => 'navigational_section',
-					'type' => 'post_object',
-					'ui' => 1,
-					'multiple' => 0,
-					'allow_null' => 0,
-					'post_type' => [
-						Section::NAME
-					]
-				),
-
-				// Single directional
-				array (
 					'key' => 'field_related_fields',
 					'label' => 'Related Fields',
 					'name' => 'related_fields',
@@ -204,6 +190,19 @@ class Post_Meta {
 					'name' => 'modified_date',
 					'type' => 'date_time_picker',
 					'ui' => 1
+				),
+				// Single directional
+				array (
+					'key' => 'navigational_section',
+					'label' => 'Navigational Section',
+					'name' => 'navigational_section',
+					'type' => 'post_object',
+					'ui' => 1,
+					'multiple' => 0,
+					'allow_null' => 0,
+					'post_type' => [
+						Section::NAME
+					]
 				),
 			),
 			'location' => array (
